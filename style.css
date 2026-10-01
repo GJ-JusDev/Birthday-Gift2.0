@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #2b1055;
+}
+
+/* Background Image Layer */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('background.jpg') center/cover no-repeat;
+    z-index: -3;
+}
+
+/* Soft overlay for readability */
+.background-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(43, 16, 85, 0.4) 0%, rgba(13, 5, 26, 0.6) 100%);
+}
+
+/* Effects Containers */
+.stars-container, .particles-container, .hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+.stars-container { z-index: -2; }
+.particles-container { z-index: -1; }
+.hearts-container { z-index: 1; }
+
+/* Main Content Area */
+.content-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    z-index: 10;
+}
+
+/* Section Transitions */
+section {
+    text-align: center;
+    width: 100%;
+    max-width: 750px;
+}
+
+#landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+#message-page {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Typography */
+.title {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    color: #fce4ec;
+    text-shadow: 0 0 15px rgba(255, 153, 204, 0.9), 0 0 5px rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #f8bbd0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    margin-bottom: 50px;
+    letter-spacing: 0.5px;
+}
+
+/* Glow Button */
+.glow-btn {
+    background: linear-gradient(135deg, #ab47bc, #ec407a);
+    color: #fff;
+    border: none;
+    padding: 18px 35px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(236, 64, 122, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+
+.glow-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(236, 64, 122, 0.8);
+}
+
+/* Glassmorphism Card for Message */
+.glass-card {
+    background: rgba(43, 16, 85, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 192, 203, 0.2);
+    border-radius: 20px;
+    padding: 35px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+/* Photos */
+.photo-frames {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.frame {
+    background: rgba(156, 39, 176, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    max-width: 320px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.frame:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+.frame img {
+    width: 100%;
+    min-height: 180px;
+    background-color: transparent;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Reminder Details */
+.reminder-section {
+    margin-bottom: 40px;
+}
+
+.small-title {
+    font-size: 1.1rem;
+    color: #f48fb1;
+    margin-bottom: 10px;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.reminder-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 105, 180, 0.9);
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.pixel-heart {
+    font-size: 3rem;
+    animation: heartbeat 2s infinite ease-in-out;
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+
+.pixel-heart:hover {
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.8));
+}
+
+.footer {
+    font-size: 0.9rem;
+    color: #f8bbd0;
+    opacity: 0.8;
+    margin-top: 20px;
+}
+
+/* CSS Animations */
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    15% { opacity: 0.8; }
+    85% { opacity: 0.8; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+/* Media Queries for Mobile/Tablet */
+@media (max-width: 600px) {
+    .content-container {
+        padding: 20px 15px;
+    }
+    .title {
+        font-size: 2.5rem;
+    }
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    .glow-btn {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+    }
+    .glass-card {
+        padding: 25px 20px;
+        font-size: 1.05rem;
+    }
+    .reminder-text {
+        font-size: 1.6rem;
+    }
+    .pixel-heart {
+        font-size: 2.5rem;
+    }
+}
